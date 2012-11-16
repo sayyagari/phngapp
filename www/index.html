@@ -13,19 +13,15 @@
     // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
-    alert('in device ready');
-
     // Cordova is ready
     //
     function onDeviceReady() {
-        alert('start watch');
         startWatch();
     }
 
     // Start watching the acceleration
     //
     function startWatch() {
-        alert('in start watch');
         // Update acceleration every 3 seconds
         var options = { frequency: 3000 };
 
@@ -44,7 +40,6 @@
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
-        alert('in on success');
         var element = document.getElementById('accelerometer');
         element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
                             'Acceleration Y: ' + acceleration.y + '<br />' +
