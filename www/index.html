@@ -22,6 +22,7 @@
                     y: null,
                     z: null
                 }
+                alert(previousReading);
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
                   bound = 0.2;
@@ -40,6 +41,7 @@
                   }
                   }, onError, { frequency: 2000 });
             }
+            alert('end of start watch');
             function shaken(){
                 alert("Shaken");
             }
