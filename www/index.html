@@ -22,15 +22,17 @@
                     y: null,
                     z: null
                 }
-                alert(previousReading.x);
+             //   alert(previousReading.x);
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
                   bound = 0.2;
-                  alert('in watchacceleation function');
+                  alert('in watchacceleation function' + ''+ acceleration);
+                //  alert(acceleration);
                   if (previousReading.x !== null) {
                       changes.x = Math.abs(previousReading.x, acceleration.x);
                       changes.y = Math.abs(previousReading.y, acceleration.y);
                       changes.z = Math.abs(previousReading.z, acceleration.z);
+                      alert(JSON.stringify(changes.x));
                   }
                   if (changes.x > bound && changes.y > bound && changes.z > bound) {
                     shaken();
