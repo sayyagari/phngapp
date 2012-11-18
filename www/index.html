@@ -6,23 +6,18 @@
         <script type="text/javascript" charset="utf-8">
             // The watch id references the current `watchAcceleration`
             var watchID = null;
-            alert('starting');
             //wait for PhoneGap to load
             document.addEventListener("deviceready", loaded, false);
             // PhoneGap is ready
-            function loaded() {
-            alert('loaded');
                 startWatch();
             }
             // Start watching the acceleration
             function startWatch() {
-            alert('startwatch');
                 var previousReading = {
                     x: null,
                     y: null,
                     z: null
                 }
-                alert(previousReading);
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
                   bound = 0.2;
@@ -41,7 +36,6 @@
                   }
                   }, onError, { frequency: 2000 });
             }
-            alert('end of start watch');
             function shaken(){
                 alert("Shaken");
             }
