@@ -22,7 +22,7 @@
                     y: null,
                     z: null
                 }
-                alert( JSON.stringify(previousReading.x));
+               // alert( JSON.stringify(previousReading.x));
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
                   bound = 0.2;
@@ -35,14 +35,17 @@
                       changes.z = Math.abs(previousReading.z, acceleration.z);
                       alert('after mathabs');
                   }
+                  alert('will be calling alert');
                   if (changes.x > bound && changes.y > bound && changes.z > bound) {
                     shaken();
                   }
+                  alert('before reading');
                   previousReading = {
                   x: reading.x,
                   y: reading.y,
                   z: reading.z
                   }
+                  alert('done');
                   }, onError, { frequency: 2000 });
             }
             function shaken(){
