@@ -26,7 +26,7 @@
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
                   bound = 0.2;
-                  alert('in watchacceleation function' + ''+ JSON.stringify(acceleration.x));
+                  alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
                 //  alert(acceleration);
                   if (previousReading.x !== null) {
                       changes.x = Math.abs(previousReading.x, acceleration.x);
