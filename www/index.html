@@ -27,12 +27,13 @@
                   var changes = {},
                   bound = 0.2;
                   alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
-                //  alert(acceleration);
+                 alert('before mathabs');
                   if (previousReading.x !== null) {
+                      alert('inside mathabs');
                       changes.x = Math.abs(previousReading.x, acceleration.x);
                       changes.y = Math.abs(previousReading.y, acceleration.y);
                       changes.z = Math.abs(previousReading.z, acceleration.z);
-                      alert(JSON.stringify(changes.x));
+                      alert('after mathabs');
                   }
                   if (changes.x > bound && changes.y > bound && changes.z > bound) {
                     shaken();
