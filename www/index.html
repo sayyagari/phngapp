@@ -25,15 +25,15 @@
                // alert( JSON.stringify(previousReading.x));
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
-                  bound = 0.5;
+                  bound = 1.0;
                 //  alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
                //  alert('before mathabs');
                   if (previousReading.x !== null) {
-                      alert('inside mathabs');
+                    //  alert('inside mathabs');
                       changes.x = Math.abs(previousReading.x - acceleration.x);
                       changes.y = Math.abs(previousReading.y - acceleration.y);
                       changes.z = Math.abs(previousReading.z - acceleration.z);
-                      alert('after mathabs');
+                     // alert('after mathabs');
                   }
                  // alert('will be calling alert');
                   if (changes.x > bound && changes.y > bound && changes.z > bound) {
