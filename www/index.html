@@ -30,9 +30,9 @@
                  alert('before mathabs');
                   if (previousReading.x !== null) {
                       alert('inside mathabs');
-                      changes.x = Math.abs(previousReading.x, acceleration.x);
-                      changes.y = Math.abs(previousReading.y, acceleration.y);
-                      changes.z = Math.abs(previousReading.z, acceleration.z);
+                      changes.x = Math.abs(previousReading.x - acceleration.x);
+                      changes.y = Math.abs(previousReading.y - acceleration.y);
+                      changes.z = Math.abs(previousReading.z - acceleration.z);
                       alert('after mathabs');
                   }
                   alert('will be calling alert');
@@ -41,9 +41,9 @@
                   }
                   alert('before reading');
                   previousReading = {
-                  x: reading.x,
-                  y: reading.y,
-                  z: reading.z
+                  x: acceleration.x,
+                  y: acceleration.y,
+                  z: acceleration.z
                   }
                   alert('done');
                   }, onError, { frequency: 2000 });
