@@ -26,8 +26,8 @@
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
                   bound = 0.2;
-                  alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
-                 alert('before mathabs');
+                //  alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
+               //  alert('before mathabs');
                   if (previousReading.x !== null) {
                       alert('inside mathabs');
                       changes.x = Math.abs(previousReading.x - acceleration.x);
@@ -35,17 +35,17 @@
                       changes.z = Math.abs(previousReading.z - acceleration.z);
                       alert('after mathabs');
                   }
-                  alert('will be calling alert');
+                 // alert('will be calling alert');
                   if (changes.x > bound && changes.y > bound && changes.z > bound) {
                     shaken();
                   }
-                  alert('before reading');
+                //  alert('before reading');
                   previousReading = {
                   x: acceleration.x,
                   y: acceleration.y,
                   z: acceleration.z
                   }
-                  alert('done');
+                 // alert('done');
                   }, onError, { frequency: 2000 });
             }
             function shaken(){
