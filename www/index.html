@@ -22,7 +22,7 @@
                     y: null,
                     z: null
                 }
-               alert(previousReading.x);
+               alert(JSON.stringify(previousReading.x));
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
                   bound = 0.2;
