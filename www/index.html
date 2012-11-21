@@ -7,9 +7,10 @@
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8">
         alert('starting main app');
-         $(function(){
+         (function(){
           alert('before starting');
-        $("#phone").text("My telephone number is: " + 
+          var ph = document.getElementById('phone');
+          ph.innerHTML("My telephone number is: " + 
                 window.MyCls.getTelephoneNumber());
                 alert('after jquery');
       });
