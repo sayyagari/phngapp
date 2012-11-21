@@ -11,8 +11,9 @@
          function getnum(){
           alert('before starting');
           var ph = document.getElementById("phone");
-          alert('got it');
-          ph.innerHTML='My telephone number is';
+          alert('got it' + ph);
+          //ph.innerHTML='My telephone number is';
+          document.getElementById("phone").innerHTML = 'Fred Flinstone';
           alert('before alert');
           alert(ph);
       /*  $("#phone").text("My telephone number is: " + 
