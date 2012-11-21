@@ -4,14 +4,16 @@
         <title>Acceleration</title>
         
         <script src="jquery.js"></script>
-        <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8">
         alert('starting main app');
          $(function(){
           alert('before starting');
         $("#phone").text("My telephone number is: " + 
                 window.MyCls.getTelephoneNumber());
+                alert('after jquery');
       });
+      alert('jquery exit');
             // The watch id references the current `watchAcceleration`
             var watchID = null;
             alert('starting');
