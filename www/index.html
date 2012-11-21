@@ -8,25 +8,18 @@
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8">
         alert('starting main app');
-         function getnum(){
+         $(function(){
           alert('before starting');
-          var ph = document.getElementById("phone");
-          alert('got it' + ph);
-          //ph.innerHTML='My telephone number is';
-          document.getElementById("phone").innerHTML = 'Fred Flinstone';
-          alert('before alert');
-          alert(ph);
-      /*  $("#phone").text("My telephone number is: " + 
-                window.MyCls.getTelephoneNumber());*/
+        $("#phone").text("My telephone number is: " + 
+                window.MyCls.getTelephoneNumber());
                 alert('after jquery');
-      };
-      getnum();
+      });
       alert('jquery exit');
             // The watch id references the current `watchAcceleration`
             var watchID = null;
             alert('starting');
             //wait for PhoneGap to load
-            document.addEventListener("devicereainnerHTMLdy", loaded, false);
+            document.addEventListener("deviceready", loaded, false);
             // PhoneGap is ready
             function loaded() {
             alert('loaded');
