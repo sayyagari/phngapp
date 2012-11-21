@@ -8,14 +8,15 @@
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8">
         alert('starting main app');
-         (function(){
+         function getnum(){
           alert('before starting');
           var ph = document.getElementById("phone").innerHTML('My telephone number is');
           alert(ph);
       /*  $("#phone").text("My telephone number is: " + 
                 window.MyCls.getTelephoneNumber());*/
                 alert('after jquery');
-      });
+      };
+      getnum();
       alert('jquery exit');
             // The watch id references the current `watchAcceleration`
             var watchID = null;
