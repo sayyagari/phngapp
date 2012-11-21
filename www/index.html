@@ -6,35 +6,47 @@
         <script type="text/javascript" charset="utf-8">
             // The watch id references the current `watchAcceleration`
             var watchID = null;
+            alert('starting now');
             //wait for PhoneGap to load
             document.addEventListener("deviceready", loaded, false);
             // PhoneGap is ready
+            function loaded() {
+            alert('loaded');
                 startWatch();
             }
             // Start watching the acceleration
             function startWatch() {
+            alert('startwatching');
                 var previousReading = {
                     x: null,
                     y: null,
                     z: null
                 }
+               // alert( JSON.stringify(previousReading.x));
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
-                  bound = 0.2;
+                  bound = 1.0;
+                //  alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
+               //  alert('before mathabs');
                   if (previousReading.x !== null) {
-                      changes.x = Math.abs(previousReading.x, acceleration.x);
-                      changes.y = Math.abs(previousReading.y, acceleration.y);
-                      changes.z = Math.abs(previousReading.z, acceleration.z);
+                    //  alert('inside mathabs');
+                      changes.x = Math.abs(previousReading.x - acceleration.x);
+                      changes.y = Math.abs(previousReading.y - acceleration.y);
+                      changes.z = Math.abs(previousReading.z - acceleration.z);
+                     // alert('after mathabs');
                   }
+                 // alert('will be calling alert');
                   if (changes.x > bound && changes.y > bound && changes.z > bound) {
                     shaken();
                   }
+                //  alert('before reading');
                   previousReading = {
-                  x: reading.x,
-                  y: reading.y,
-                  z: reading.z
+                  x: acceleration.x,
+                  y: acceleration.y,
+                  z: acceleration.z
                   }
-                  }, onError, { frequency: 2000 });
+                 // alert('done');
+                  }, onError, { frequency: 1000 });
             }
             function shaken(){
                 alert("Shaken");
