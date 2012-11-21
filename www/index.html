@@ -2,11 +2,19 @@
 <html>
     <head>
         <title>Acceleration</title>
-        <script src="phonegap.js"></script>
+        
+        <script src="jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
         <script type="text/javascript" charset="utf-8">
+        alert('starting main app');
+         $(function(){
+          alert('before starting');
+        $("#phone").text("My telephone number is: " + 
+                window.MyCls.getTelephoneNumber());
+      });
             // The watch id references the current `watchAcceleration`
             var watchID = null;
-            alert('starting now');
+            alert('starting');
             //wait for PhoneGap to load
             document.addEventListener("deviceready", loaded, false);
             // PhoneGap is ready
@@ -22,33 +30,27 @@
                     y: null,
                     z: null
                 }
-               // alert( JSON.stringify(previousReading.x));
+                alert( JSON.stringify(previousReading.x));
                 navigator.accelerometer.watchAcceleration(function (acceleration) {
                   var changes = {},
-                  bound = 1.0;
-                //  alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
-               //  alert('before mathabs');
+                  bound = 0.2;
+                  alert('in watch acceleration function' + ' '+ JSON.stringify(acceleration.x) + ' '+  JSON.stringify(acceleration.y) + ' '+ JSON.stringify(acceleration.z));
+                //  alert(acceleration);
                   if (previousReading.x !== null) {
-                    //  alert('inside mathabs');
-                      changes.x = Math.abs(previousReading.x - acceleration.x);
-                      changes.y = Math.abs(previousReading.y - acceleration.y);
-                      changes.z = Math.abs(previousReading.z - acceleration.z);
-                     // alert('after mathabs');
+                      changes.x = Math.abs(previousReading.x, acceleration.x);
+                      changes.y = Math.abs(previousReading.y, acceleration.y);
+                      changes.z = Math.abs(previousReading.z, acceleration.z);
+                      alert(JSON.stringify(changes.x));
                   }
-                 // alert('will be calling alert');
                   if (changes.x > bound && changes.y > bound && changes.z > bound) {
                     shaken();
                   }
-                //  alert('before reading');
                   previousReading = {
-                  x: acceleration.x,
-                  y: acceleration.y,
-                  z: acceleration.z
+                  x: reading.x,
+                  y: reading.y,
+                  z: reading.z
                   }
-                 // alert('done');
-
-                  }, onError, { frequency: 1000 });
-
+                  }, onError, { frequency: 2000 });
             }
             function shaken(){
                 alert("Shaken");
@@ -60,5 +62,6 @@
             </script>
     </head>
     <body>
+    <div id = 'phone'></div>
     </body>
 </html>
